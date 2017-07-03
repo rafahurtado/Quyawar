@@ -26,8 +26,8 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private  void attemptWelcome(){
-        //TextView tv = (TextView) findViewById( R.id.tv_welcome);
-        //tv.setText("diste click");
+        TextView tv = (TextView) findViewById( R.id.tv_welcome);
+        tv.setText(R.string.app_name);
 
         //setContentView(R.layout.activity_login);
     }
