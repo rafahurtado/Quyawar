@@ -1,6 +1,7 @@
 package pe.edu.upc.quyawar.activities;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import pe.edu.upc.quyawar.R;
@@ -21,55 +23,50 @@ public class MainActivity extends AppCompatActivity {
 
     boolean firstTime = false;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener(){
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            return navigateAccording(item.getItemId());
-        }
-    };
-
+   BottomNavigationView.OnNavigationItemSelectedListener mListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+       @Override
+       public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+           navigateAccording(item.getItemId());
+           return true;
+       }
+   };
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.activity_main);
+
         if (firstTime) {
+            Intent iWelcome = new Intent(MainActivity.this, WelcomeActivity.class);
+            startActivity(iWelcome);
             setContentView(R.layout.activity_welcome);
-        }else {
-            setContentView(R.layout.activity_main);
         }
 
+
         BottomNavigationView navigation =  (BottomNavigationView) findViewById(R.id.navigation);
-        //navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setOnNavigationItemSelectedListener(mListener);
 
 
     }
 
     private Fragment getFragmentFor(int id){
 
-        TextView tvMensaje = (TextView) findViewById(R.id.tv_message);
 
         switch (id){
             case R.id.navigation_home:
-                tvMensaje.setText(R.string.title_home);
                 return new HomeFragment();
             case R.id.navigation_add_campaign:
-                tvMensaje.setText(R.string.title_add_camp);
                 return new AddCampaignFragment();
             case R.id.navigation_see_campaign:
-                tvMensaje.setText("R.string.title_see_campaign");
                 return new SeeCampaignFragment();
             case R.id.navigation_my_donations:
-                tvMensaje.setText(R.string.title_my_donations);
                 return new MyDonationsFragment();
             case R.id.navigation_edit_profile:
-                tvMensaje.setText("R.string.title_edit_profile");
-                ((TextView) findViewById(R.id.tv_message)).setText("Editar");
-
                 return new EditProfileFragment();
         }
+
         return null;
     }
 

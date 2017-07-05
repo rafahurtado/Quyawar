@@ -1,6 +1,6 @@
 package pe.edu.upc.quyawar.activities;
 
-import android.content.DialogInterface;
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,20 +9,28 @@ import android.widget.TextView;
 
 import pe.edu.upc.quyawar.R;
 
-public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener  {
+public class WelcomeActivity extends Activity {
 
-    @Override
-    public void onClick(View view) {
-        attemptWelcome();
-    }
+
+
+    Button.OnClickListener mListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            //enterWelcome();
+            TextView tvSaludo = (TextView) findViewById( R.id.tv_welcome);
+            tvSaludo.setText("hice click");
+        }
+    };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-
-        //Button btnWelcome = (Button) findViewById(R.id.btn_welcome);
+        Button btnWelcome = (Button) findViewById(R.id.btn_welcome);
+        btnWelcome.setOnClickListener(mListener);
 
         //btnWelcome.setOnClickListener(new View.OnClickListener() {
         //    @Override
@@ -31,13 +39,16 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         //    }
         //});
 
+        //enterWelcome();
+
     }
 
-    private  void attemptWelcome(){
+    private void enterWelcome(){
         TextView tv = (TextView) findViewById( R.id.tv_welcome);
         tv.setText(R.string.app_name);
 
         //setContentView(R.layout.activity_login);
+        //return true;
     }
 
 }

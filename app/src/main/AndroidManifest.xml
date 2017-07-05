@@ -28,9 +28,6 @@
             android:name=".activities.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".activities.WelcomeActivity" />
-        <activity
-            android:name=".activities.TestActivity"
-            android:label="@string/title_activity_test"></activity>
     </application>
 
 </manifest>

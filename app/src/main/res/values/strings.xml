@@ -26,5 +26,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello, i am a blank fragment</string>
+    <string name="add_camp_titulo">Rótulo campaña</string>
+    <string name="add_camp_tiposangre">Tipo de sangre</string>
+    <string name="add_camp_paciente">¿A quien se dona?</string>
+
+
+    <!-- fragment add campaña -->
+    <string-array name="blood_type_array">
+        <item>A+</item>
+        <item>A-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+    </string-array>
 
 </resources>
