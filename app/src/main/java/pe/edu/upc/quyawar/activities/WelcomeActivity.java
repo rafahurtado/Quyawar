@@ -1,4 +1,4 @@
-package pe.edu.upc.quyawar;
+package pe.edu.upc.quyawar.activities;
 
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class WelcomeActivity extends AppCompatActivity {
+import pe.edu.upc.quyawar.R;
+
+public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener  {
+
+    @Override
+    public void onClick(View view) {
+        attemptWelcome();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,13 +22,14 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
 
-        Button btnIngresar = (Button) findViewById(R.id.btnIngresarWelcome);
-        btnIngresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptWelcome();
-            }
-        });
+        //Button btnWelcome = (Button) findViewById(R.id.btn_welcome);
+
+        //btnWelcome.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        attemptWelcome();
+        //    }
+        //});
 
     }
 

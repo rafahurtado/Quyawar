@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="pe.edu.upc.quyawar.LoginActivity">
+    tools:context="pe.edu.upc.quyawar.activities.LoginActivity">
 
     <!-- Login progress -->
     <ProgressBar

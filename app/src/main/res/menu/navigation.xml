@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_add_campaign"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="@string/title_add_camp" />
+
+    <item
+    android:id="@+id/navigation_see_campaign"
+    android:icon="@drawable/ic_visibility_black_24dp"
+    android:title="@string/title_see_campaign" />
+
+    <item
+        android:id="@+id/navigation_my_donations"
+        android:icon="@drawable/ic_heart_black_24dp"
+        android:title="@string/title_my_donations" />
+
+    <item
+        android:id="@+id/navigation_edit_profile"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="@string/title_edit_profile" />
+
+</menu>

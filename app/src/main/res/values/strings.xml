@@ -17,6 +17,14 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">Contacts permissions are needed for providing email
         completions.</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_add_camp">Add campaign</string>
+    <string name="title_see_campaign">See campaigns</string>
+    <string name="title_my_donations">My donations</string>
+    <string name="title_edit_profile">Edit profile</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello, i am a blank fragment</string>
 
 </resources>
