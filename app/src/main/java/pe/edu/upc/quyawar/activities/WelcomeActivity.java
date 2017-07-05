@@ -1,6 +1,7 @@
 package pe.edu.upc.quyawar.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,9 +17,9 @@ public class WelcomeActivity extends Activity {
     Button.OnClickListener mListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            //enterWelcome();
-            TextView tvSaludo = (TextView) findViewById( R.id.tv_welcome);
-            tvSaludo.setText("hice click");
+            enterWelcome();
+            //TextView tvSaludo = (TextView) findViewById( R.id.tv_welcome);
+            //tvSaludo.setText("hice click");
         }
     };
 
@@ -44,11 +45,12 @@ public class WelcomeActivity extends Activity {
     }
 
     private void enterWelcome(){
-        TextView tv = (TextView) findViewById( R.id.tv_welcome);
-        tv.setText(R.string.app_name);
+        //TextView tv = (TextView) findViewById( R.id.tv_welcome);
+        //tv.setText(R.string.app_name);
 
-        //setContentView(R.layout.activity_login);
-        //return true;
+        Intent iMainActivity = new Intent(WelcomeActivity.this, MainActivity.class);
+        iMainActivity.putExtra("firstTime", false);
+        startActivity(iMainActivity);
     }
 
 }

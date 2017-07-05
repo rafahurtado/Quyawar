@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/add_camp_titulo"
             android:inputType="none" />
 
         <TextView
@@ -47,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/add_camp_paciente"
             android:inputType="textPersonName" />
 
         <TextView
@@ -61,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.26"
             android:ems="10"
+            android:hint="Mensaje "
             android:inputType="textMultiLine" />
 
         <LinearLayout

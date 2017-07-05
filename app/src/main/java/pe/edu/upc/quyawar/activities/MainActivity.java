@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,9 +21,9 @@ import pe.edu.upc.quyawar.fragments.HomeFragment;
 import pe.edu.upc.quyawar.fragments.MyDonationsFragment;
 import pe.edu.upc.quyawar.fragments.SeeCampaignFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AddCampaignFragment.OnFragmentInteractionListener {
 
-    boolean firstTime = false;
+
 
    BottomNavigationView.OnNavigationItemSelectedListener mListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
        @Override
@@ -38,21 +40,23 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        boolean firstTime = getIntent().getBooleanExtra("firstTime", true);
         if (firstTime) {
             Intent iWelcome = new Intent(MainActivity.this, WelcomeActivity.class);
             startActivity(iWelcome);
-            setContentView(R.layout.activity_welcome);
+            //setContentView(R.layout.activity_welcome);
         }
 
 
         BottomNavigationView navigation =  (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mListener);
 
+        //Fragment fragmentHome =
+
 
     }
 
     private Fragment getFragmentFor(int id){
-
 
         switch (id){
             case R.id.navigation_home:
