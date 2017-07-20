@@ -40,5 +40,6 @@
         <item>O+</item>
         <item>O-</item>
     </string-array>
+    <string name="title_activity_otra">OtraActivity</string>
 
 </resources>

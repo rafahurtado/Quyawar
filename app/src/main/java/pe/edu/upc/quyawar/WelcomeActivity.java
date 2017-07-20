@@ -14,15 +14,15 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-
-        Button btnIngresar = (Button) findViewById(R.id.btnIngresarWelcome);
+/*
+        Button btnIngresar = (Button) findViewById(R.id.);
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptWelcome();
             }
         });
-
+*/
     }
 
     private  void attemptWelcome(){
