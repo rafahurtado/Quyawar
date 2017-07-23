@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import pe.edu.upc.quyawar.R;
@@ -18,10 +19,13 @@ public class RegisterUserActivity extends AppCompatActivity {
     AutoCompleteTextView emailRegistredTextView;
     AutoCompleteTextView passwordRegistredTextView;
     AutoCompleteTextView passwordConfirmedTextView;
+    Spinner bloodTypeSpinner;
     Button registerUserButton;
 
     String email_user;
     String password_user, password_user2;
+
+    Integer blood_type_id;
 
     private static String TAG = "QuyawarApp";
 
@@ -45,9 +49,12 @@ public class RegisterUserActivity extends AppCompatActivity {
                 email_user = emailRegistredTextView.getText().toString();
                 password_user = passwordRegistredTextView.getText().toString();
                 password_user2 = passwordConfirmedTextView.getText().toString();
+                blood_type_id = bloodTypeSpinner.getSelectedItemPosition();
 
                 if(validCredentials()){
-
+                    if(register_user()){
+                        finish();
+                    }
                 }
             }
         });
@@ -79,8 +86,9 @@ public class RegisterUserActivity extends AppCompatActivity {
         return false;
     }
 
-    private void register_user() {
-        finish();
+    private boolean register_user() {
+        Log.d(TAG, "Usuario registrado");
+        return true;
     }
 
 }

@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@android:color/white"
     tools:context="pe.edu.upc.quyawar.activities.LoginActivity">
 
     <!-- Login progress -->
@@ -27,6 +28,7 @@
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:orientation="vertical">
 
             <android.support.design.widget.TextInputLayout
@@ -72,13 +74,20 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/email_sign_up_button"
+                android:id="@+id/sign_up_user_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_up"
                 android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/logo_main" />
+
 
         </LinearLayout>
     </ScrollView>

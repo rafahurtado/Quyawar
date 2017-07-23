@@ -3,6 +3,7 @@ package pe.edu.upc.quyawar.activities;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -32,6 +33,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -89,6 +91,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 attemptLogin();
+            }
+        });
+
+        Button mRegisterNewUser = (Button)findViewById(R.id.sign_up_user_button);
+        mRegisterNewUser.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterUserActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -189,6 +200,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            //****
+            QuyawarApp.getInstance().setAuthenticated(true);
         }
     }
 
