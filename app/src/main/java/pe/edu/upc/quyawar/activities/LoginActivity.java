@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,11 +31,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.ANResponse;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
+import pe.edu.upc.quyawar.network.LoginService;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -313,6 +324,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         private final String mEmail;
         private final String mPassword;
+        private String mMensaje;
 
         UserLoginTask(String email, String password) {
             mEmail = email;
@@ -322,14 +334,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-
+            ResponseLogin responseLogin = autenticacion(mEmail, mPassword);
+            mMensaje    = responseLogin.getMensaje();
+            return responseLogin.isRespuesta();
+            /*
             try {
                 // Simulate network access.
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 return false;
             }
-
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
@@ -337,9 +351,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     return pieces[1].equals(mPassword);
                 }
             }
+            */
 
             // TODO: register the new account here.
-            return true;
+            //return true;
         }
 
         @Override
@@ -350,7 +365,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if (success) {
                 finish();
             } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
+                mPasswordView.setError(mMensaje);
                 mPasswordView.requestFocus();
             }
         }
@@ -359,6 +374,51 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected void onCancelled() {
             mAuthTask = null;
             showProgress(false);
+        }
+    }
+
+    String TAG = "LoginUsuario";
+    private ResponseLogin autenticacion(String strCorreo, String strPassword) {
+        final ResponseLogin responseLogin = new ResponseLogin();
+        ANResponse<JSONObject> anResponse = AndroidNetworking.get(LoginService.USUARIO_URL)
+                .addQueryParameter("strCorreo", strCorreo)
+                .addQueryParameter("strPassword", strPassword)
+                .setTag(TAG)
+                .build()
+                .executeForJSONObject();
+
+        JSONObject response = anResponse.getResult();
+        try {
+            if(response.getString("login").equalsIgnoreCase("false")) {
+                Log.d(TAG, response.getString("mensaje"));
+                responseLogin.respuesta(response.getString("mensaje"), false);
+            } else {
+                responseLogin.respuesta("Login satisfactorio", true);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return responseLogin;
+    }
+    class ResponseLogin {
+        String mensaje;
+        boolean respuesta;
+
+        public ResponseLogin() {
+        }
+
+        public void respuesta(String mensaje, boolean respuesta) {
+            this.mensaje = mensaje;
+            this.respuesta = respuesta;
+        }
+
+        public String getMensaje() {
+            return mensaje;
+        }
+
+        public boolean isRespuesta() {
+            return respuesta;
         }
     }
 }

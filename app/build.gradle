@@ -32,6 +32,7 @@ dependencies {
     compile 'com.android.support:support-v4:26.+'
     compile 'com.github.satyan:sugar:1.4'
     compile 'com.google.firebase:firebase-auth:10.0.1'
+    compile 'com.amitshekhar.android:android-networking:1.0.0'
     testCompile 'junit:junit:4.12'
 }
 
