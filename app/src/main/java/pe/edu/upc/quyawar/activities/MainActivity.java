@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
 import pe.edu.upc.quyawar.fragments.AddCampaignFragment;
 import pe.edu.upc.quyawar.fragments.EditProfileFragment;
@@ -40,11 +41,9 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
 
         setContentView(R.layout.activity_main);
 
-        boolean firstTime = getIntent().getBooleanExtra("firstTime", true);
-        if (firstTime) {
+        if ( QuyawarApp.getInstance().isFirstTime()) {
             Intent iWelcome = new Intent(MainActivity.this, WelcomeActivity.class);
             startActivity(iWelcome);
-            //setContentView(R.layout.activity_welcome);
         }
 
 
