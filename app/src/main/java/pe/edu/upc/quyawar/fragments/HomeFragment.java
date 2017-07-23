@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment {
         final View rootView = (FrameLayout)inflater.inflate(R.layout.fragment_home, container, false);
 
         //** fragment Home
-        createHomeButton = (Button) rootView.findViewById(R.id.createCampaignHomeButton);
+        createHomeButton = (Button) rootView.findViewById(R.id.createCampaignButton);
         Button donationsHomeButton = (Button) rootView.findViewById(R.id.donationsButton);
         Button listCampaignsHomeButton = (Button) rootView.findViewById(R.id.seeCampaignsButton);
 

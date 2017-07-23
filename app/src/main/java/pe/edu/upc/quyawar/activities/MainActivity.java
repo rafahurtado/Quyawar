@@ -16,6 +16,7 @@ import android.widget.Button;
 import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
 import pe.edu.upc.quyawar.fragments.AddCampaignFragment;
+import pe.edu.upc.quyawar.fragments.EditProfileFragment;
 import pe.edu.upc.quyawar.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity implements AddCampaignFragment.OnFragmentInteractionListener {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
         BottomNavigationView navigation =  (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mListener);
 
-        navigateAccording(R.id.navigation_home);
+        //navigateAccording(R.id.navigation_home);
 
 
         Button createCampaignButton = (Button) findViewById(R.id.createCampaignButton);
@@ -88,9 +89,11 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
                 intent = new Intent(MainActivity.this, CampaignsActivity.class);
                 startActivity(intent);
             case R.id.navigation_my_donations:
-                //return new MyDonationsFragment();
+                intent = new Intent(MainActivity.this, DonationsActivity.class);
+                startActivity(intent);
             case R.id.navigation_edit_profile:
-                //return new EditProfileFragment();
+                intent = new Intent(MainActivity.this, EditProfileActivity.class);
+                startActivity(intent);
         }
 
         return false;
@@ -123,6 +126,13 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_edit_profile) {
+            startActivity( new Intent(MainActivity.this, EditProfileActivity.class));
+            return true;
+        }else if (id == R.id.action_sign_out) {
+            startActivity( new Intent(MainActivity.this, SignOutActivity.class));
+            return true;
+        }else if (id == R.id.action_terms_conditions) {
+            startActivity( new Intent(MainActivity.this, TermsConditionsActivity.class));
             return true;
         }
 

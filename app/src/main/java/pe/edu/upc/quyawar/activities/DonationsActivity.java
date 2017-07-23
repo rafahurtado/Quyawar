@@ -9,12 +9,12 @@ import android.view.View;
 
 import pe.edu.upc.quyawar.R;
 
-public class NewCampaignActivity extends AppCompatActivity {
+public class DonationsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_campaign);
+        setContentView(R.layout.activity_donations);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

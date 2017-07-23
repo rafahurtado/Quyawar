@@ -55,6 +55,34 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pe.edu.upc.quyawar.activities.MainActivity" />
         </activity>
+        <activity
+            android:name=".activities.EditProfileActivity"
+            android:label="@string/title_activity_edit_profile"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.quyawar.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.DonationsActivity"
+            android:label="@string/title_activity_donations"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.quyawar.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.TermsConditionsActivity"
+            android:label="@string/title_activity_terms_conditions"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.quyawar.activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.SignOutActivity"></activity>
     </application>
 
 </manifest>
