@@ -1,5 +1,7 @@
 package pe.edu.upc.quyawar;
 
+import pe.edu.upc.quyawar.models.AccessHelper;
+
 /**
  * Created by Rafael on 22/07/2017.
  */
@@ -10,6 +12,8 @@ public class QuyawarApp {
 
     boolean firstTime;
     boolean authenticated;
+
+    AccessHelper accessHelper;
 
 
 
@@ -33,6 +37,10 @@ public class QuyawarApp {
     public void setAuthenticated(boolean authenticated) {
         this.authenticated = authenticated;
     }
+
+
+
+
 
     //********************
     public static QuyawarApp getInstance(){
