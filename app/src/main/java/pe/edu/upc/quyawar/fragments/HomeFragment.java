@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import pe.edu.upc.quyawar.R;
 import pe.edu.upc.quyawar.activities.NewCampaignActivity;
@@ -30,12 +29,12 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View rootView = (LinearLayout)inflater.inflate(R.layout.fragment_home, container, false);
+        final View rootView = (FrameLayout)inflater.inflate(R.layout.fragment_home, container, false);
 
         //** fragment Home
         createHomeButton = (Button) rootView.findViewById(R.id.createCampaignHomeButton);
-        Button donationsHomeButton = (Button) rootView.findViewById(R.id.donationsHomeButton);
-        Button listCampaignsHomeButton = (Button) rootView.findViewById(R.id.seeCampaignsHomeButton);
+        Button donationsHomeButton = (Button) rootView.findViewById(R.id.donationsButton);
+        Button listCampaignsHomeButton = (Button) rootView.findViewById(R.id.seeCampaignsButton);
 
         createHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override

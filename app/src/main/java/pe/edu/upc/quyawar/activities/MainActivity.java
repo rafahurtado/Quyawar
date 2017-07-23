@@ -16,18 +16,11 @@ import android.widget.Button;
 import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
 import pe.edu.upc.quyawar.fragments.AddCampaignFragment;
-import pe.edu.upc.quyawar.fragments.EditProfileFragment;
 import pe.edu.upc.quyawar.fragments.HomeFragment;
-import pe.edu.upc.quyawar.fragments.MyDonationsFragment;
-import pe.edu.upc.quyawar.fragments.SeeCampaignFragment;
 
 public class MainActivity extends AppCompatActivity implements AddCampaignFragment.OnFragmentInteractionListener {
 
     private static String TAG = "QuyawarApp";
-
-
-
-
 
    BottomNavigationView.OnNavigationItemSelectedListener mListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
        @Override
@@ -53,42 +46,67 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
 
         navigateAccording(R.id.navigation_home);
 
+
+        Button createCampaignButton = (Button) findViewById(R.id.createCampaignButton);
+        Button donationsHomeButton = (Button) findViewById(R.id.donationsButton);
+        Button listCampaignsHomeButton = (Button) findViewById(R.id.seeCampaignsButton);
+
+        createCampaignButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NewCampaignActivity.class);
+                startActivity(intent);
+            }
+        });
+        donationsHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        listCampaignsHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, CampaignsActivity.class));
+            }
+        });
+
     }
 
-    private Fragment getFragmentFor(int id){
+
+    private boolean navigateAccording(int id){
+
+        Intent intent;
 
         switch (id){
             case R.id.navigation_home:
-                return new HomeFragment();
+                //navigateToFragment( new HomeFragment());
             case R.id.navigation_add_campaign:
-                return new AddCampaignFragment();
+                intent = new Intent(MainActivity.this, NewCampaignActivity.class);
+                startActivity(intent);
             case R.id.navigation_see_campaign:
-                return new SeeCampaignFragment();
+                intent = new Intent(MainActivity.this, CampaignsActivity.class);
+                startActivity(intent);
             case R.id.navigation_my_donations:
-                return new MyDonationsFragment();
+                //return new MyDonationsFragment();
             case R.id.navigation_edit_profile:
-                return new EditProfileFragment();
-        }
-
-        return null;
-    }
-
-    private boolean navigateAccording(int id){
-        try{
-
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.content,getFragmentFor(id))
-                    .commit();
-
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
+                //return new EditProfileFragment();
         }
 
         return false;
     }
-
+/*
+    private void navigateToFragment(Fragment fragment){
+        try{
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content, fragment)
+                    .commit();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
