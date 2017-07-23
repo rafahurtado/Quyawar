@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "540301276141",
+    "firebase_url": "https://quyawar.firebaseio.com",
+    "project_id": "quyawar",
+    "storage_bucket": "quyawar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540301276141:android:2be1aa5412b57e66",
+        "android_client_info": {
+          "package_name": "pe.edu.upc.quyawar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540301276141-pqgvm1mb285d5grg65f0gufdq01dt0oj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.edu.upc.quyawar",
+            "certificate_hash": "647484d776dafb4ff107dea2cae612fd93b01e6a"
+          }
+        },
+        {
+          "client_id": "540301276141-rkqn8uu8t3jah620i898uaog0fecppum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa2tBHKdxJWb8vidutSx6QX6dNwyzOLoQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540301276141-rkqn8uu8t3jah620i898uaog0fecppum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

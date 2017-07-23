@@ -9,11 +9,13 @@ public class QuyawarApp {
     private static QuyawarApp instance;
 
     boolean firstTime;
+    boolean authenticated;
 
 
 
     public QuyawarApp() {
         firstTime = true;
+        authenticated = false;
     }
 
     public boolean isFirstTime() {
@@ -22,6 +24,14 @@ public class QuyawarApp {
 
     public void setFirstTime(boolean firstTime) {
         this.firstTime = firstTime;
+    }
+
+    public boolean isAuthenticated() {
+        return authenticated;
+    }
+
+    public void setAuthenticated(boolean authenticated) {
+        this.authenticated = authenticated;
     }
 
     //********************

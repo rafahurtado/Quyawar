@@ -9,10 +9,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
@@ -24,6 +28,7 @@ import pe.edu.upc.quyawar.fragments.SeeCampaignFragment;
 
 public class MainActivity extends AppCompatActivity implements AddCampaignFragment.OnFragmentInteractionListener {
 
+    private static String TAG = "QuyawarApp";
 
 
    BottomNavigationView.OnNavigationItemSelectedListener mListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -38,19 +43,15 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
-        if ( QuyawarApp.getInstance().isFirstTime()) {
-            Intent iWelcome = new Intent(MainActivity.this, WelcomeActivity.class);
-            startActivity(iWelcome);
-        }
 
 
         BottomNavigationView navigation =  (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mListener);
 
-        //Fragment fragmentHome =
+
+
 
 
     }
@@ -109,5 +110,22 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //***
+        if ( QuyawarApp.getInstance().isFirstTime()) {
+            Intent iWelcome = new Intent(MainActivity.this, WelcomeActivity.class);
+            startActivity(iWelcome);
+        }else {
+            if (!QuyawarApp.getInstance().isAuthenticated()) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        }
+        // ...
     }
 }

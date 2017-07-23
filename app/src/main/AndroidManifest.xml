@@ -27,7 +27,16 @@
         <activity
             android:name=".activities.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".activities.WelcomeActivity"></activity>
+        <activity android:name=".activities.WelcomeActivity" />
+        <activity
+            android:name=".activities.RegisterUserActivity"
+            android:label="@string/title_activity_register_user"
+            android:parentActivityName=".activities.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.quyawar.activities.LoginActivity" />
+        </activity>
     </application>
 
 </manifest>

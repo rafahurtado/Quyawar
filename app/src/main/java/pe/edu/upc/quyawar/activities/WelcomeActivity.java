@@ -1,5 +1,6 @@
 package pe.edu.upc.quyawar.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,13 +18,12 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        QuyawarApp.getInstance().setFirstTime(false);
-
         startButton = (Button) findViewById(R.id.welcomeButton);
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                QuyawarApp.getInstance().setFirstTime(false);
                 finish();
             }
         });
