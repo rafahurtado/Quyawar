@@ -6,17 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import android.widget.Button;
 
 import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
@@ -31,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
     private static String TAG = "QuyawarApp";
 
 
+
+
+
    BottomNavigationView.OnNavigationItemSelectedListener mListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
        @Override
        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -40,19 +38,20 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
    };
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         BottomNavigationView navigation =  (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mListener);
 
-
-
-
+        navigateAccording(R.id.navigation_home);
 
     }
 
@@ -105,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_edit_profile) {
             return true;
         }
 

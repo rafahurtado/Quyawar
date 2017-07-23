@@ -37,6 +37,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pe.edu.upc.quyawar.activities.LoginActivity" />
         </activity>
+        <activity
+            android:name=".activities.NewCampaignActivity"
+            android:label="@string/title_activity_new_campaign"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.quyawar.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.CampaignsActivity"
+            android:label="@string/title_activity_campaigns"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.quyawar.activities.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
