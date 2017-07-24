@@ -1,6 +1,8 @@
-package pe.edu.upc.quyawar.models;
+package pe.edu.upc.quyawar.network;
 
 import java.util.List;
+
+import pe.edu.upc.quyawar.models.AccessHelper;
 
 /**
  * Created by Rafael on 23/07/2017.

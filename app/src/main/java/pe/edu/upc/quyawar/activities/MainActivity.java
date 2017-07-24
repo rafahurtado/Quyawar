@@ -80,20 +80,25 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
         Intent intent;
 
         switch (id){
-            case R.id.navigation_home:
-                //navigateToFragment( new HomeFragment());
+            case R.id.navigations_locals:
+                startActivity(new Intent(MainActivity.this, LocalsActivity.class));
+                break;
             case R.id.navigation_add_campaign:
                 intent = new Intent(MainActivity.this, NewCampaignActivity.class);
                 startActivity(intent);
+                break;
             case R.id.navigation_see_campaign:
                 intent = new Intent(MainActivity.this, CampaignsActivity.class);
                 startActivity(intent);
+                break;
             case R.id.navigation_my_donations:
                 intent = new Intent(MainActivity.this, DonationsActivity.class);
                 startActivity(intent);
+                break;
             case R.id.navigation_edit_profile:
                 intent = new Intent(MainActivity.this, EditProfileActivity.class);
                 startActivity(intent);
+                break;
         }
 
         return false;

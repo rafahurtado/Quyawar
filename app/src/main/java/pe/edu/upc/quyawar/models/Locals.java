@@ -8,8 +8,10 @@ public class Locals {
 
     private int id;
     private String name;
-    private String lat;
-    private String lon;
+    private String address;
+    private String phone;
+    private double lat;
+    private double lon;
     private int pictureId;
 
     public Locals() {
@@ -31,20 +33,36 @@ public class Locals {
         this.name = name;
     }
 
-    public String getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public String getLon() {
+    public double getLon() {
         return lon;
     }
 
-    public void setLon(String lon) {
+    public void setLon(double lon) {
         this.lon = lon;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public int getPictureId() {
