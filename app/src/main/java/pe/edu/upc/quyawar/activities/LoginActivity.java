@@ -85,6 +85,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
+        mEmailView.setText(QuyawarApp.getInstance().getLastAuthenticated());
+
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -177,7 +179,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
+        String email = mEmailView.getText().toString().toLowerCase();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -212,6 +214,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
             //****
+            QuyawarApp.getInstance().setLastAuthenticated(email);
             QuyawarApp.getInstance().setAuthenticated(true);
         }
     }
