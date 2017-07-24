@@ -394,6 +394,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 responseLogin.respuesta(response.getString("mensaje"), false);
             } else {
                 responseLogin.respuesta("Login satisfactorio", true);
+                QuyawarApp.getInstance().setAuthenticated(true);
             }
 
         } catch (JSONException e) {

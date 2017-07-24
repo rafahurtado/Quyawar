@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
             startActivity( new Intent(MainActivity.this, EditProfileActivity.class));
             return true;
         }else if (id == R.id.action_sign_out) {
+            QuyawarApp.getInstance().setAuthenticated(false);
             startActivity( new Intent(MainActivity.this, SignOutActivity.class));
             return true;
         }else if (id == R.id.action_terms_conditions) {
