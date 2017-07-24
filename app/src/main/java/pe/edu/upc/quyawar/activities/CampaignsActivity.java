@@ -70,6 +70,7 @@ public class CampaignsActivity extends AppCompatActivity {
                 .getAsJSONArray(new JSONArrayRequestListener() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        Log.d(TAG, "response length " + String.valueOf(response.length()) );
                         campaigns = Campaign.build(response);
                         campaignsAdapter.setCampaigns(campaigns);
                         campaignsAdapter.notifyDataSetChanged();
