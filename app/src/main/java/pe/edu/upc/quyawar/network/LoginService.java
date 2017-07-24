@@ -5,7 +5,6 @@ package pe.edu.upc.quyawar.network;
  */
 
 public class LoginService {
-    public static String USUARIO_URL = "http://characato.club/quyawar/usuario/login";
-
+    public static String USUARIO_URL = "http://characato.club/quyawar/donante/login";
 
 }
