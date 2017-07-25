@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements AddCampaignFragme
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         BottomNavigationView navigation =  (BottomNavigationView) findViewById(R.id.navigation);

@@ -119,11 +119,9 @@ public class Campaign {
 
             return campaign;
 
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
 
         return null;
     }

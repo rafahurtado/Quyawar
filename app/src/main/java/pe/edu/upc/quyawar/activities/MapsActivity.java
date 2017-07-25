@@ -10,11 +10,16 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
+import pe.edu.upc.quyawar.models.Campaign;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    private static final String TAG = "QuyawarApp";
     private GoogleMap mMap;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +46,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
+        /*
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        */
+        Campaign campaign = QuyawarApp.getInstance().getCurrentCampaign();
+        LatLng local = new LatLng(campaign.getLat(), campaign.getLon());
+        mMap.addMarker(new MarkerOptions().position(local).title(campaign.getDescription()));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(local, 15));
+
     }
 }
