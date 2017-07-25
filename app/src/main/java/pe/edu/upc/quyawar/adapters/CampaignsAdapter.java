@@ -3,11 +3,13 @@ package pe.edu.upc.quyawar.adapters;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.quyawar.QuyawarApp;
@@ -21,14 +23,15 @@ import pe.edu.upc.quyawar.models.Campaign;
 
 public class CampaignsAdapter extends RecyclerView.Adapter<CampaignsAdapter.ViewHolder> {
 
+    private static final String TAG = "QuyawarApp";
     List<Campaign> campaigns;
 
     public void setCampaigns(List<Campaign> campaigns) {
         this.campaigns = campaigns;
     }
 
-    public CampaignsAdapter(List<Campaign> campaigns) {
-        this.campaigns = campaigns;
+    public CampaignsAdapter() {
+        this.campaigns = new ArrayList<>();
     }
 
     @Override
@@ -40,6 +43,10 @@ public class CampaignsAdapter extends RecyclerView.Adapter<CampaignsAdapter.View
 
     @Override
     public void onBindViewHolder(CampaignsAdapter.ViewHolder holder, final int position) {
+
+        Log.d(TAG, "position: " + String.valueOf(position));
+        Log.d(TAG, "campaigns size " + String.valueOf(campaigns));
+
         holder.descriptionTextView.setText(campaigns.get(position).getDescription());
         holder.localTextView.setText(campaigns.get(position).getLocalDonation() + " - " +
                                     campaigns.get(position).getDistrito());

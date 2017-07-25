@@ -55,7 +55,7 @@ public class CampaignsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         campaigns = new ArrayList<>();
-        campaignsAdapter = new CampaignsAdapter(campaigns);
+        campaignsAdapter = new CampaignsAdapter();
         campaignsLayoutManager = new LinearLayoutManager(this);
         campaignsRecyclerView = (RecyclerView)findViewById(R.id.campaignsRecyclerView);
         campaignsRecyclerView.setLayoutManager(campaignsLayoutManager);
@@ -70,15 +70,11 @@ public class CampaignsActivity extends AppCompatActivity {
                 .setTag(TAG)
                 .setPriority(Priority.LOW)
                 .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
+                .getAsJSONArray(new JSONArrayRequestListener() {
                     @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            Log.d(TAG, "response object " + String.valueOf(response.getJSONArray("").length()) );
-                            campaigns = Campaign.build(response.getJSONArray(""));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                    public void onResponse(JSONArray response) {
+                        Log.d(TAG, "response length -> " + String.valueOf(response.length()) );
+                        campaigns = Campaign.build(response);
                         campaignsAdapter.setCampaigns(campaigns);
                         campaignsAdapter.notifyDataSetChanged();
                     }

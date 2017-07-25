@@ -1,6 +1,7 @@
 package pe.edu.upc.quyawar.models;
 
 import android.content.Intent;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,6 +15,8 @@ import java.util.List;
  */
 
 public class Campaign {
+
+    private static final String TAG = "QuyawarApp";
 
     Integer id;
     String description;
@@ -100,6 +103,8 @@ public class Campaign {
 
         if(jsonCampaign == null) { return null; }
 
+        Log.d(TAG, "jsonCampaign: " + jsonCampaign.toString());
+
         try {
             campaign.setId(jsonCampaign.getInt("srlIdCampania"))
                     .setDescription(jsonCampaign.getString("strDescripcion"))
@@ -107,9 +112,12 @@ public class Campaign {
                     .setBloodType(jsonCampaign.getJSONObject("idTipoSangre").getString("strDescripcion"))
                     .setLocalDonation(jsonCampaign.getJSONObject("idSedesalud").getString("strNombre"));
 
-            String[] parts = jsonCampaign.getJSONObject("idSedesalud").getString("strNombre").split(",");
+            String[] parts = jsonCampaign.getJSONObject("idSedesalud").getString("strUbicacion").split(",");
+            //Log.d(TAG, "" +  jsonCampaign.getJSONObject("idSedesalud").getString("strNombre"));
             campaign.setLat(Double.valueOf( parts[0]));
             campaign.setLon(Double.valueOf( parts[1]));
+
+            return campaign;
 
 
         } catch (JSONException e) {
@@ -121,13 +129,16 @@ public class Campaign {
     }
 
     public static List<Campaign> build(JSONArray jsonCampaigns){
+        Log.d(TAG, "Start build array ");
         List<Campaign> campaigns = new ArrayList<>();
         int length = jsonCampaigns.length();
+        Log.d(TAG, "length value " + String.valueOf(length));
         for (int i = 0; i < length; i++){
             try {
                 campaigns.add(Campaign.build(jsonCampaigns.getJSONObject(i)));
             } catch (JSONException e) {
                 e.printStackTrace();
+                Log.d(TAG, "Error build array : " + e.getMessage());
             }
         }
         return campaigns;
