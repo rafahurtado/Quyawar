@@ -64,6 +64,12 @@ public class CampaignsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateCampaigns();
+    }
+
     private void updateCampaigns(){
         AndroidNetworking
                 .get(QuyawarApiService.CAMPAIGN_URL)

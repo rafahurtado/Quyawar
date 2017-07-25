@@ -13,6 +13,7 @@ import android.widget.TextView;
 import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
 import pe.edu.upc.quyawar.models.Campaign;
+import pe.edu.upc.quyawar.models.Cooperation;
 
 public class CampaignActivity extends AppCompatActivity {
 
@@ -38,8 +39,10 @@ public class CampaignActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action ACCEPT", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "ACCEPT collaborate", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Cooperation.ACCEPT(QuyawarApp.getInstance().getCurrentCampaign().getId());
+                finish();
             }
         });
         FloatingActionButton fabDeny = (FloatingActionButton) findViewById(R.id.fabDeny);
@@ -48,6 +51,7 @@ public class CampaignActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "DENY cooperate with campaign", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Cooperation.DENY(QuyawarApp.getInstance().getCurrentCampaign().getId());
                 finish();
             }
         });

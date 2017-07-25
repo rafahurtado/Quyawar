@@ -16,6 +16,7 @@ import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
 import pe.edu.upc.quyawar.activities.CampaignActivity;
 import pe.edu.upc.quyawar.models.Campaign;
+import pe.edu.upc.quyawar.models.Cooperation;
 
 /**
  * Created by rhurtado on 24/07/2017.
@@ -52,6 +53,12 @@ public class CampaignsAdapter extends RecyclerView.Adapter<CampaignsAdapter.View
                                     campaigns.get(position).getDistrito());
         holder.bloodTypeTextView.setText(campaigns.get(position).getBloodType());
 
+        if (Cooperation.isColaborator(campaigns.get(position).getId())) {
+            holder.collaboratorTextView.setVisibility(View.VISIBLE);
+        }else{
+            holder.collaboratorTextView.setVisibility(View.INVISIBLE);
+        }
+
         holder.campaignCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +79,7 @@ public class CampaignsAdapter extends RecyclerView.Adapter<CampaignsAdapter.View
         TextView localTextView;
         TextView bloodTypeTextView;
         CardView campaignCardView;
+        TextView collaboratorTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -79,6 +87,7 @@ public class CampaignsAdapter extends RecyclerView.Adapter<CampaignsAdapter.View
             descriptionTextView = (TextView)itemView.findViewById(R.id.descriptionTextView);
             localTextView = (TextView)itemView.findViewById(R.id.localTextView);
             bloodTypeTextView = (TextView)itemView.findViewById(R.id.bloodTypeTextView);
+            collaboratorTextView = (TextView)itemView.findViewById(R.id.collaboratorTextView);
         }
     }
 }
