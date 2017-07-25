@@ -28,7 +28,7 @@ public class Campaign {
     Double lat;
     Double lon;
 
-
+    Boolean collaborator;
 
     public Campaign() {
     }
@@ -96,6 +96,13 @@ public class Campaign {
         return this;
     }
 
+    public Boolean getCollaborator() {
+        return collaborator;
+    }
+
+    public void setCollaborator(Boolean collaborator) {
+        this.collaborator = collaborator;
+    }
 
     //patron builder
     public static Campaign build(JSONObject jsonCampaign){
@@ -116,6 +123,8 @@ public class Campaign {
             //Log.d(TAG, "" +  jsonCampaign.getJSONObject("idSedesalud").getString("strNombre"));
             campaign.setLat(Double.valueOf( parts[0]));
             campaign.setLon(Double.valueOf( parts[1]));
+
+            campaign.setCollaborator(Cooperation.isColaborator(campaign.getId()));
 
             return campaign;
 

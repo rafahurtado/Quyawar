@@ -25,42 +25,44 @@
         android:id="@+id/localLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/locationButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
+
+                android:background="@drawable/roundcorner"
+                app:srcCompat="@drawable/ic_location_on_white_24dp" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="75">
+            android:layout_marginStart="5dp"
+            android:layout_weight="4"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/localTextView"
-                android:text="Sample local"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:text="Sample local" />
+
             <TextView
                 android:id="@+id/ubicationTextView"
-                android:text="Sample ubication"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:text="Sample ubication" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="25">
-            <ImageButton
-                android:id="@+id/locationButton"
-                android:background="@android:color/holo_red_light"
-                app:srcCompat="@drawable/ic_location_on_white_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                />
-        </LinearLayout>
-
-
     </LinearLayout>
 
     <LinearLayout

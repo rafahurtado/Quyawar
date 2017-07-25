@@ -9,6 +9,8 @@ import com.orm.SugarRecord;
 public class LastAuthenticated extends SugarRecord {
 
     String email;
+    //String password;
+    //Boolean persist;
 
     public LastAuthenticated() {
     }
@@ -20,4 +22,22 @@ public class LastAuthenticated extends SugarRecord {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    /*
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getPersist() {
+        return persist;
+    }
+
+    public void setPersist(Boolean persist) {
+        this.persist = persist;
+    }
+    */
 }
