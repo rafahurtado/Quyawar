@@ -1,5 +1,6 @@
 package pe.edu.upc.quyawar.adapters;
 
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,7 +12,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import pe.edu.upc.quyawar.QuyawarLocalsApp;
 import pe.edu.upc.quyawar.R;
+import pe.edu.upc.quyawar.activities.LocalSedeActivity;
 import pe.edu.upc.quyawar.models.Local;
 
 /**
@@ -20,7 +23,7 @@ import pe.edu.upc.quyawar.models.Local;
 
 public class SedeLocalsAdapter extends RecyclerView.Adapter<SedeLocalsAdapter.ViewHolder>{
     private static final String TAG = "QuyawarLocalsApp";
-    List<Local> locals;
+    private List<Local> locals;
 
     public void setLocals(List<Local> locals) {
         this.locals = locals;
@@ -28,6 +31,7 @@ public class SedeLocalsAdapter extends RecyclerView.Adapter<SedeLocalsAdapter.Vi
     public SedeLocalsAdapter(){
         this.locals = new ArrayList<>();
     }
+
 
     @Override
     public SedeLocalsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -45,16 +49,16 @@ public class SedeLocalsAdapter extends RecyclerView.Adapter<SedeLocalsAdapter.Vi
         holder.localNameTextView.setText(locals.get(position).getName());
         holder.localAddressTextView.setText(locals.get(position).getAddress());
 
-        /*
 
-        holder.campaignCardView.setOnClickListener(new View.OnClickListener() {
+
+        holder.localCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                QuyawarApp.getInstance().setCurrentCampaign(campaigns.get(position));
-                view.getContext().startActivity(new Intent(view.getContext(), CampaignActivity.class));
+                //QuyawarLocalsApp.getInstance().setCurrentLocal(locals.get(position));
+                view.getContext().startActivity(new Intent(view.getContext(), LocalSedeActivity.class));
             }
         });
-         */
+
     }
 
     @Override
