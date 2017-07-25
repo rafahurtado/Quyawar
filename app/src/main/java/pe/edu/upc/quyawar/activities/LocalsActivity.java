@@ -72,68 +72,7 @@ public class LocalsActivity extends AppCompatActivity {
                 });
 
     }
-    /*
-        private void updateCampaigns(){
-        AndroidNetworking
-                .get(QuyawarApiService.CAMPAIGN_URL)
-                .setTag(TAG)
-                .setPriority(Priority.LOW)
-                .build()
-                .getAsJSONArray(new JSONArrayRequestListener() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        int res = response.length();
-                        Log.d(TAG, "response length -> " + String.valueOf(response.length()) );
-                        campaigns = Campaign.build(response);
-                        campaignsAdapter.setCampaigns(campaigns);
-                        campaignsAdapter.notifyDataSetChanged();
-
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-                        Log.d(TAG, "anError : " + anError.getMessage());
-                    }
-                });
-    }
-     */
 
 
-
-    /*
-        private void updateQuotes(){
-        quotes = new ArrayList<>();
-        AndroidNetworking
-                .get(QuotesAPIServices.QUOTES_URL)
-                .setTag(TAG)
-                .setPriority(Priority.LOW)
-                .build()
-                .getAsJSONArray(new JSONArrayRequestListener() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject jresponse = response.getJSONObject(i);
-                                String id = jresponse.getString("id");
-                                String author = jresponse.getString("author");
-                                String quote = jresponse.getString("quote");
-                                String permalink = jresponse.getString("permalink");
-                                quotes.add(i,new Quote(id,author,quote,permalink));
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        int size = quotes.size();
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-
-                    }
-                });
-
-    }
-     */
 
 }
