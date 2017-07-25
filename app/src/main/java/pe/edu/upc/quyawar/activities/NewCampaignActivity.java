@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.quyawar.R;
+import pe.edu.upc.quyawar.adapters.LocalsAdapter;
 import pe.edu.upc.quyawar.models.Local;
 import pe.edu.upc.quyawar.network.QuyawarApiService;
 
@@ -27,7 +28,7 @@ public class NewCampaignActivity extends AppCompatActivity {
     private static String TAG = "QuyawarApp";
     List<Local> locals;
     Spinner localsSpinner;
-    //SpinnerAdapter localsSpinnerAdapter;
+    LocalsAdapter localsAdapter;
     ArrayAdapter spinner_adapter;
 
     @Override
@@ -39,8 +40,11 @@ public class NewCampaignActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         locals = new ArrayList<>();
+        localsAdapter = new LocalsAdapter();
+        localsAdapter.setLocals(locals);
 
         localsSpinner = (Spinner)findViewById(R.id.localSpinner);
+        localsSpinner.setAdapter(localsAdapter);
 
         updateLocals();
 
@@ -59,11 +63,15 @@ public class NewCampaignActivity extends AppCompatActivity {
                         Log.d(TAG, "response length -> " + String.valueOf(response.length()) );
                         locals = Local.build(response);
 
-                        spinner_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locals);
+                        //spinner_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locals);
                         //Añadimos el layout para el menú y se lo damos al spinner
-                        spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        localsSpinner.setAdapter(spinner_adapter);
-                        spinner_adapter.notifyDataSetChanged();
+                        //spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        //localsSpinner.setAdapter(spinner_adapter);
+                        //spinner_adapter.notifyDataSetChanged();
+
+                        localsAdapter.setLocals(locals);
+                        localsAdapter.notify();
+
 
                     }
 
