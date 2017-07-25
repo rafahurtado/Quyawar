@@ -60,5 +60,6 @@
 
 
     <string name="maps_api_key">AIzaSyANlI-96bxcJzsgoktX6MC2AfGd6qUr8L0</string>
+    <string name="title_activity_local_sede">LocalSedeActivity</string>
 
 </resources>

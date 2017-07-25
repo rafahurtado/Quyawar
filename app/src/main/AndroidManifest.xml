@@ -24,11 +24,6 @@
         android:roundIcon="@drawable/if_blood_donation"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
-
-
         <meta-data
             android:name="DATABASE"
             android:value="quyawardb2.db" />
@@ -147,6 +142,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pe.edu.upc.quyawar.activities.CampaignActivity" />
+        </activity>
+        <activity
+            android:name=".activities.LocalSedeActivity"
+            android:label="@string/title_activity_local_sede"
+            android:parentActivityName=".activities.LocalsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.quyawar.activities.LocalsActivity" />
         </activity>
     </application>
 
