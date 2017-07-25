@@ -55,5 +55,6 @@
     <string name="title_activity_donations">My donations</string>
     <string name="title_activity_locals">Locals</string>
     <string name="title_activity_terms_conditions">Terms &amp; Conditions</string>
+    <string name="title_activity_campaign">CampaignActivity</string>
 
 </resources>

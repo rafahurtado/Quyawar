@@ -15,8 +15,11 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,18 +70,22 @@ public class CampaignsActivity extends AppCompatActivity {
                 .setTag(TAG)
                 .setPriority(Priority.LOW)
                 .build()
-                .getAsJSONArray(new JSONArrayRequestListener() {
+                .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d(TAG, "response length " + String.valueOf(response.length()) );
-                        campaigns = Campaign.build(response);
+                    public void onResponse(JSONObject response) {
+                        try {
+                            Log.d(TAG, "response object " + String.valueOf(response.getJSONArray("").length()) );
+                            campaigns = Campaign.build(response.getJSONArray(""));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         campaignsAdapter.setCampaigns(campaigns);
                         campaignsAdapter.notifyDataSetChanged();
                     }
 
                     @Override
                     public void onError(ANError anError) {
-                        Log.d(TAG, anError.toString());
+                        Log.d(TAG, "anError : " + anError.getMessage());
                     }
                 });
     }

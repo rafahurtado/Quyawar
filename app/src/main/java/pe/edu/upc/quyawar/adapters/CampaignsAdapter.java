@@ -12,6 +12,7 @@ import java.util.List;
 
 import pe.edu.upc.quyawar.QuyawarApp;
 import pe.edu.upc.quyawar.R;
+import pe.edu.upc.quyawar.activities.CampaignActivity;
 import pe.edu.upc.quyawar.models.Campaign;
 
 /**
@@ -48,7 +49,7 @@ public class CampaignsAdapter extends RecyclerView.Adapter<CampaignsAdapter.View
             @Override
             public void onClick(View view) {
                 QuyawarApp.getInstance().setCurrentCampaign(campaigns.get(position));
-                //view.getContext().startActivity(new Intent(view.getContext(), ));
+                view.getContext().startActivity(new Intent(view.getContext(), CampaignActivity.class));
             }
         });
 

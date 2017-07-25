@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="DATABASE"
-            android:value="quyawardb1.db" />
+            android:value="quyawardb2.db" />
         <meta-data
             android:name="VERSION"
             android:value="2" />
@@ -107,6 +107,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pe.edu.upc.quyawar.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.CampaignActivity"
+            android:label="@string/title_activity_campaign"
+            android:parentActivityName=".activities.CampaignsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.quyawar.activities.CampaignsActivity" />
         </activity>
     </application>
 
