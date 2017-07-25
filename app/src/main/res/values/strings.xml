@@ -58,4 +58,7 @@
     <string name="title_activity_campaign">CampaignActivity</string>
     <string name="title_activity_maps">Location Map</string>
 
+
+    <string name="maps_api_key">AIzaSyDsv248JTEATJ8n8i6ep3li_Ekc8Rm2RBs</string>
+
 </resources>

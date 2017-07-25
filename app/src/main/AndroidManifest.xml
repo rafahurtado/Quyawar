@@ -24,6 +24,13 @@
         android:roundIcon="@drawable/if_blood_donation"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+
+
         <meta-data
             android:name="DATABASE"
             android:value="quyawardb2.db" />

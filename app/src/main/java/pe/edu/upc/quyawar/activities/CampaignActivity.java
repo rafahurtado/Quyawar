@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import pe.edu.upc.quyawar.QuyawarApp;
-import pe.edu.upc.quyawar.R;
 import pe.edu.upc.quyawar.models.Campaign;
 
 public class CampaignActivity extends AppCompatActivity {
